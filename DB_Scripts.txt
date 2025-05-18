@@ -41,3 +41,16 @@ Inventory
     "address":"10 Downing Street",
 	"quantity" : 10
 }
+
+
+create schema  customer_db;
+use  customer_db;
+
+create table cart(cart_id int(11) auto_increment primary key,
+customer_id int(11) not null,
+product_id int(11) not null,
+product_name varchar(100) not null,
+quantity int(11) not null,
+cart_value double(10,2),
+address varchar(500),
+payment_info varchar(500))
