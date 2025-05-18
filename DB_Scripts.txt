@@ -59,3 +59,8 @@ product_name varchar(100) not null,
 quantity int(11) not null,
 price double(10,2) not null,
 FOREIGN KEY (cart_id) REFERENCES cart(cart_id))
+
+{
+    "productId":"1",
+	"quantity" : 1
+}
