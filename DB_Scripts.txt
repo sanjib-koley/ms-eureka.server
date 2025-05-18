@@ -20,16 +20,24 @@ use  catalog_db;
 create table product(product_id int(11) auto_increment primary key,product_name varchar(100) not null,price double(10,2) not null,description varchar(100), quantity int(11) not null, category ENUM("BOOKS","FASHION","ELECTRONICS","FURNITURE","GROCERIES") not null,status ENUM("AVAILABLE","OUTOFSTOCK")not null ,seller_id int(11) not null);
 
 
+create schema  inventory_db;
+use  inventory_db;
+
+create table inventory(inventory_id int(11) auto_increment primary key,
+product_id int(11) not null,
+product_name varchar(100) not null,
+seller_id int(11) not null,
+quantity int(11) not null,
+address varchar(250) not null)
+
+SELECT * from inventory;
 
 
 
+
+Inventory
 	
 {
-    "productName":"Effective Java",
-    "price": 100.57,
-	"description" : "Java Book",
-	"quantity" : 10,
-    "category":"BOOKS",
-	"status":"AVAILABLE",
-	"sellerId":"0"
+    "address":"10 Downing Street",
+	"quantity" : 10
 }
