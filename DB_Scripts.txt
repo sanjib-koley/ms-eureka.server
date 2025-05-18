@@ -45,12 +45,17 @@ Inventory
 
 create schema  customer_db;
 use  customer_db;
-
+drop table cart;
 create table cart(cart_id int(11) auto_increment primary key,
 customer_id int(11) not null,
-product_id int(11) not null,
-product_name varchar(100) not null,
-quantity int(11) not null,
 cart_value double(10,2),
 address varchar(500),
 payment_info varchar(500))
+
+drop table item;
+create table item(item_id int(11) auto_increment primary key,cart_id int(11),
+product_id int(11) not null,
+product_name varchar(100) not null,
+quantity int(11) not null,
+price double(10,2) not null,
+FOREIGN KEY (cart_id) REFERENCES cart(cart_id))
