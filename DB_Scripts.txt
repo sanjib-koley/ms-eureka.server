@@ -74,3 +74,20 @@ FOREIGN KEY (cart_id) REFERENCES cart(cart_id))
     "productId":"1",
 	"quantity" : 1
 }
+
+{
+    "cartId": 1,
+    "customerId": 1,
+    "sellerId": 3,
+    "orderItems": [{"itemId":1,"productId":1,"productName":"Java","quantity"=1,"price":300.51,"sellerId"=3}],
+    "orderValue": 300.51,
+	customerAddress: "2 Rawdon Street",
+    "sellerAddress": "10 Downing Street",
+    "paymentInfo": "CreditCard:1234:05-25:377"
+}
+
+
+zookeeper-server-start.bat ..\..\config\zookeeper.properties
+kafka-server-start.bat ..\..\config\server.properties
+
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic order_created --from-beginning
