@@ -85,9 +85,3 @@ FOREIGN KEY (cart_id) REFERENCES cart(cart_id))
     "sellerAddress": "10 Downing Street",
     "paymentInfo": "CreditCard:1234:05-25:377"
 }
-
-
-zookeeper-server-start.bat ..\..\config\zookeeper.properties
-kafka-server-start.bat ..\..\config\server.properties
-
-kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic order_created --from-beginning

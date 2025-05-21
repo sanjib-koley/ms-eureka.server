@@ -1,0 +1,43 @@
+Jenkins - 
+http://localhost:9000/
+admin/admin
+
+Postgres 
+Password - admin
+
+MySQL-
+root/root
+
+Kafka -
+localhost:9092
+
+Git - 
+https://github.com/sanjib-koley/ms-config-server.git
+https://github.com/sanjib-koley/ms-app-config.git
+https://github.com/sanjib-koley/ms-currency-exchange.git
+https://github.com/sanjib-koley/ms-api-gateway.git
+https://github.com/sanjib-koley/minikube-jenkins-integration.git
+https://github.com/sanjib-koley/edu-auth-service.git
+https://github.com/sanjib-koley/ms-eureka.server.git
+
+
+Grafana -
+http://localhost:3000/
+admin/admin
+
+Zipkin
+http://localhost:9411/
+
+
+zookeeper-server-start.bat ..\..\config\zookeeper.properties
+kafka-server-start.bat ..\..\config\server.properties
+
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic order_created --from-beginning
+
+
+curl -sSL https://zipkin.io/quickstart.sh | bash -s
+java -jar zipkin.jar
+
+http://127.0.0.1:9411/
+
+.\loki-windows-amd64.exe --config.file=loki-local-config.yaml
