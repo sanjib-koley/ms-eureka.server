@@ -1,3 +1,5 @@
+https://github.com/indiagator?tab=repositories&q=hrs&type=&language=&sort=
+
 Jenkins - 
 http://localhost:9000/
 admin/admin
@@ -28,7 +30,7 @@ admin/admin
 Zipkin
 http://localhost:9411/
 
-
+cd C:\kafka_2.13-3.9.0\bin\windows\
 zookeeper-server-start.bat ..\..\config\zookeeper.properties
 kafka-server-start.bat ..\..\config\server.properties
 
