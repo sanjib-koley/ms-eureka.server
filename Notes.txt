@@ -30,11 +30,15 @@ admin/admin
 Zipkin
 http://localhost:9411/
 
+
+.\loki-windows-amd64.exe --config.file=loki-local-config.yaml
+
 cd C:\kafka_2.13-3.9.0\bin\windows\
 zookeeper-server-start.bat ..\..\config\zookeeper.properties
 kafka-server-start.bat ..\..\config\server.properties
 
-kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic order_created --from-beginning
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic order_create --from-beginning
+kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic order_cancel --from-beginning
 
 
 curl -sSL https://zipkin.io/quickstart.sh | bash -s
@@ -42,4 +46,4 @@ java -jar zipkin.jar
 
 http://127.0.0.1:9411/
 
-.\loki-windows-amd64.exe --config.file=loki-local-config.yaml
+

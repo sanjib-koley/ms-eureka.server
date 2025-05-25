@@ -82,3 +82,13 @@ FOREIGN KEY (cart_id) REFERENCES cart(cart_id))
     "sellerAddress": "10 Downing Street",
     "paymentInfo": "CreditCard:1234:05-25:377"
 }
+
+
+create schema  payment_db;
+use  payment_db;
+drop table payment;
+create table payment(payment_id int(11) auto_increment primary key,
+customer_id bigint(11) not null,
+payment_info varchar(500),
+balance double(10,2)
+)
