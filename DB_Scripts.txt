@@ -73,13 +73,15 @@ FOREIGN KEY (cart_id) REFERENCES cart(cart_id))
 }
 
 {
-    "cartId": 1,
-    "customerId": 1,
-    "sellerId": 3,
-    "orderItems": [{"itemId":1,"productId":1,"productName":"Java","quantity"=1,"price":300.51,"sellerId"=3}],
-    "orderValue": 300.51,
-	customerAddress: "2 Rawdon Street",
-    "sellerAddress": "10 Downing Street",
+    "items": [
+        {
+            "productId": 1,
+            "productName": "Java 2",
+            "quantity": 1,
+            "price": 300.51
+        }
+    ],
+    "address": "2 Rawdon Street",
     "paymentInfo": "CreditCard:1234:05-25:377"
 }
 
