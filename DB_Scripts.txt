@@ -94,3 +94,29 @@ customer_id bigint(11) not null,
 payment_info varchar(500),
 balance double(10,2)
 )
+
+
+create schema school_db;
+use school_db;
+
+create table teacher(id int(11) auto_increment primary key,
+name varchar(100) not null);
+
+create table course(id int(11) auto_increment primary key,
+name varchar(100) not null,teacher_id int(11), FOREIGN KEY (teacher_id) REFERENCES teacher(id));
+
+create table student(id int(11) auto_increment primary key,
+name varchar(100) not null);
+
+create table student_course_details(id int(11) auto_increment primary key,
+student_id int(11), FOREIGN KEY (student_id) REFERENCES student(id),
+course_id int(11), FOREIGN KEY (course_id) REFERENCES course(id));
+
+
+create table student_assignment_details(id int(11) auto_increment primary key,
+student_id int(11), FOREIGN KEY (student_id) REFERENCES student(id),
+course_id int(11), FOREIGN KEY (course_id) REFERENCES course(id));
+
+
+
+
