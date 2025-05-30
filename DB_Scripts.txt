@@ -112,8 +112,11 @@ create table student_course_details(id int(11) auto_increment primary key,
 student_id int(11), FOREIGN KEY (student_id) REFERENCES student(id),
 course_id int(11), FOREIGN KEY (course_id) REFERENCES course(id));
 
-
+drop table student_assignment_details;
 create table student_assignment_details(id int(11) auto_increment primary key,
+name varchar(100) not null,
+due_date varchar(100) not null,
+days_remaining varchar(100) not null,
 student_id int(11), FOREIGN KEY (student_id) REFERENCES student(id),
 course_id int(11), FOREIGN KEY (course_id) REFERENCES course(id));
 
