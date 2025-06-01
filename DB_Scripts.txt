@@ -11,12 +11,18 @@ insert into credentials(email,phone,password,usertype) values('sanjib@gmail.com'
 SELECT * FROM credentials;
 SELECT * FROM tokens;
 
+DELETE FROM credentials where id in(2,3);
+DELETE FROM tokens where userid in (2,3);
+
 
 
 create schema  catalog_db;
 use  catalog_db;
 
+DELETE FROM product where product_id in(4,5);
+
 drop table product;
+
 create table product(product_id int(11) auto_increment primary key,product_name varchar(100) not null,price double(10,2) not null,description varchar(100), quantity int(11) DEFAULT 0, category ENUM("BOOKS","FASHION","ELECTRONICS","FURNITURE","GROCERIES"),status ENUM("AVAILABLE","OUTOFSTOCK") DEFAULT "OUTOFSTOCK" not null,seller_id int(11) not null);
 
 {
@@ -29,7 +35,7 @@ create table product(product_id int(11) auto_increment primary key,product_name 
 
 create schema  inventory_db;
 use  inventory_db;
-
+drop table inventory if exists;
 create table inventory(inventory_id int(11) auto_increment primary key,
 product_id int(11) not null,
 product_name varchar(100) not null,
@@ -37,10 +43,7 @@ seller_id int(11) not null,
 quantity int(11) not null,
 address varchar(250) not null)
 
-SELECT * from inventory;
-
-
-
+DELETE from inventory where inventory_id in(9,10,11);
 
 Inventory
 	
@@ -52,14 +55,18 @@ Inventory
 
 create schema  customer_db;
 use  customer_db;
-drop table cart;
+
+DELETE from item where cart_id <=17;
+DELETE from cart where cart_id <=17
+
+drop table cart if exists;
 create table cart(cart_id int(11) auto_increment primary key,
 customer_id int(11) not null,
 cart_value double(10,2),
 address varchar(500),
 payment_info varchar(500))
 
-drop table item;
+drop table item if exists;
 create table item(item_id int(11) auto_increment primary key,cart_id int(11),
 product_id int(11) not null,
 product_name varchar(100) not null,
@@ -88,7 +95,12 @@ FOREIGN KEY (cart_id) REFERENCES cart(cart_id))
 
 create schema  payment_db;
 use  payment_db;
+
+DELETE from payment where payment_id =1;
+
+
 drop table payment;
+
 create table payment(payment_id int(11) auto_increment primary key,
 customer_id bigint(11) not null,
 payment_info varchar(500),
@@ -99,15 +111,19 @@ balance double(10,2)
 create schema school_db;
 use school_db;
 
+drop table teacher;
 create table teacher(id int(11) auto_increment primary key,
 name varchar(100) not null);
 
+drop table course;
 create table course(id int(11) auto_increment primary key,
 name varchar(100) not null,teacher_id int(11), FOREIGN KEY (teacher_id) REFERENCES teacher(id));
 
+drop table student;
 create table student(id int(11) auto_increment primary key,
 name varchar(100) not null);
 
+drop table student_course_details;
 create table student_course_details(id int(11) auto_increment primary key,
 student_id int(11), FOREIGN KEY (student_id) REFERENCES student(id),
 course_id int(11), FOREIGN KEY (course_id) REFERENCES course(id));
