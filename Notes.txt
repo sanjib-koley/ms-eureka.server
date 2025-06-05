@@ -22,6 +22,8 @@ https://github.com/sanjib-koley/minikube-jenkins-integration.git
 https://github.com/sanjib-koley/edu-auth-service.git
 https://github.com/sanjib-koley/ms-eureka.server.git
 
+https://github.com/indiagator/code22-config-server-properties/blob/main/contract-service-prod.properties
+
 
 Grafana -
 http://localhost:3000/
@@ -45,5 +47,9 @@ curl -sSL https://zipkin.io/quickstart.sh | bash -s
 java -jar zipkin.jar
 
 http://127.0.0.1:9411/
+
+java -jar target\ms -Xms=1024m -Xmx=2048m -Dspring.profiles.active=dev
+
+.\prometheus.exe --config.file=prometheus.yml
 
 
